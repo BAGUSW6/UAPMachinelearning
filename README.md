@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://via.placeholder.com/600x200?text=Prediksi+Depresi+Mahasiswa" alt="Logo" />
+  <img src="https://th.bing.com/th/id/OIP.1AX2qH9cLodgi6NfFPBbuwHaEK?w=277&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Logo" />
 </p>
 
 # ✨ Prediksi Depresi Mahasiswa: Analisis Faktor Akademik dan Gaya Hidup dengan RF dan FNN ✨
@@ -16,7 +16,8 @@ Dataset yang digunakan mencakup data mahasiswa dengan atribut seperti tekanan ak
 - 15% sebagai *Testing Set*.  
 
 ### Klik Link untuk Mengakses Dataset & Model:
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/your-repository)
+- [![Kaggle Dataset](https://img.shields.io/badge/Kaggle-Student%20Depression%20Dataset-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/hopesb/student-depression-dataset?resource=download)
+- [Model RF dan FNN](Model/)
 
 ---
 
@@ -70,11 +71,11 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini:
 
 ### Confusion Matrix  
 **Random Forest:**  
-![Confusion Matrix RF](path/to/rf_confusion_matrix.png)  
+![Confusion Matrix RF](visualisasi/rfconf.png)  
  Matriks ini menunjukkan bahwa model Random Forest mampu mengklasifikasikan sebagian besar data dengan baik, dengan sedikit kesalahan pada kelas positif dan negatif.
 
 **Feedforward Neural Network:**  
-![Confusion Matrix FNN](path/to/fnn_confusion_matrix.png)  
+![Confusion Matrix FNN](visualisasi/fnnconf.png)  
  Model FNN sedikit lebih lemah dalam mengklasifikasikan kelas negatif dibandingkan Random Forest, namun tetap memberikan hasil yang kompetitif.
 
 ### Classification Report  
@@ -102,17 +103,14 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini:
  Model FNN sedikit tertinggal dari RF dalam hal akurasi keseluruhan, namun tetap memiliki performa yang baik dengan hasil yang konsisten.
 
 ### Learning Curve  
-**Random Forest:**  
-![Learning Curve RF](path/to/rf_learning_curve.png)  
- Grafik ini menunjukkan bahwa model Random Forest mencapai stabilitas akurasi yang tinggi pada data training dan testing, dengan overfitting minimal.
 
 **Feedforward Neural Network:**  
-![Learning Curve FNN](path/to/fnn_learning_curve.png)  
+![Learning Curve FNN](visualisasi/curve.png)  
  Model FNN menunjukkan performa yang fluktuatif pada data testing, menunjukkan potensi overfitting yang memerlukan tuning lebih lanjut.
 
 ### Feature Importance  
 Feature importance dari model Random Forest:  
-![Feature Importance](path/to/feature_importance.png)  
+![Feature Importance](visualisasi/fitur.png)  
  Fitur "Have you ever had suicidal thoughts?" adalah yang paling berpengaruh terhadap prediksi, diikuti oleh tekanan akademik dan stres keuangan.
 
 ---
@@ -122,13 +120,13 @@ Feature importance dari model Random Forest:
 Aplikasi web ini dirancang menggunakan **Streamlit**, framework Python yang sederhana dan interaktif. Dengan antarmuka yang intuitif, pengguna dapat memasukkan data faktor akademik dan gaya hidup untuk mendapatkan prediksi risiko depresi.
 
 ### Tampilan Aplikasi  
-- **Halaman Utama**:  
-  Halaman ini menyambut pengguna dengan deskripsi singkat tentang tujuan aplikasi. Pengguna diarahkan untuk memasukkan data melalui form yang mudah diakses.
-  ![Homepage](path/to/homepage.png)  
+- **Input User**:  
+  Halaman ini menyambut pengguna dengan deskripsi singkat tentang tujuan aplikasi. Pengguna diarahkan untuk memasukkan inputan yang sudah disediakan.
+  ![Homepage](view/input.png)  
 
 - **Hasil Prediksi**:  
   Setelah data dimasukkan, aplikasi menampilkan hasil prediksi secara langsung, lengkap dengan model yang digunakan (RF dan FNN) serta tingkat kepercayaan model.  
-  ![Prediction Result](path/to/prediction_result.png)  
+  ![Prediction Result](view/hasil.png)  
 
 Aplikasi ini mudah diakses dan dapat dijalankan di lingkungan lokal tanpa konfigurasi yang kompleks. Hasil prediksi disajikan secara jelas untuk mendukung pengguna dalam memahami kondisi mereka.
 
@@ -142,5 +140,5 @@ Aplikasi ini mudah diakses dan dapat dijalankan di lingkungan lokal tanpa konfig
 ---
 
 ## 📧 Author  
-[BagusW](https://github.com/your-profile)  
+[BagusW](https://www.instagram.com/baguswicaksonoo__/)  
 
