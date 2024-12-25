@@ -1,89 +1,56 @@
-# UAPMachinelearning
-# Prediksi Depresi Mahasiswa
+# ✨ Prediksi Depresi Mahasiswa: Analisis Faktor Akademik dan Gaya Hidup dengan RF dan FNN ✨
 
-Proyek ini adalah aplikasi berbasis web yang memprediksi kemungkinan depresi mahasiswa berdasarkan berbagai faktor akademik dan gaya hidup. Aplikasi ini menggunakan model machine learning untuk memberikan hasil prediksi yang dapat digunakan sebagai langkah awal dalam memahami kondisi mental mahasiswa.
-
----
-
-## 🎯 Deskripsi Proyek
-
-Kesehatan mental mahasiswa adalah salah satu aspek penting yang perlu diperhatikan, terutama di tengah tekanan akademik dan gaya hidup yang sering kali tidak seimbang. Proyek ini bertujuan untuk:
-
-- Memberikan alat sederhana untuk memprediksi risiko depresi.
-- Mengedukasi pengguna tentang pentingnya menjaga kesehatan mental.
-- Membandingkan performa model **Random Forest (RF)** dan **Feedforward Neural Network (FNN)** dalam melakukan prediksi.
-
-Aplikasi ini dibangun menggunakan **Streamlit** untuk antarmuka web dan mengintegrasikan model machine learning yang telah dilatih.
+## Table of Contents
+1. [Overview Project](#-overview-project)
+2. [Deskripsi Dataset](#-deskripsi-dataset)
+3. [Preprocessing & Modelling](#-preprocessing--modelling)
+   - [Random Forest Model](#-random-forest-model-)
+   - [Feedforward Neural Network Model](#-feedforward-neural-network-model-)
+   - [Learning Curve](#-learning-curve)
+   - [Feature Importance](#-feature-importance)
+4. [Local Web Deployment](#-local-web-deployment)
+5. [Kesimpulan](#-kesimpulan)
+6. [Author](#-author)
 
 ---
 
-## ⚙️ Langkah Instalasi
-
-Ikuti langkah-langkah berikut untuk menginstal dan menjalankan aplikasi ini di komputer Anda:
-
-### 1. Clone Repository
-```bash
-git clone <url-repository>
-cd <folder-repository>
-```
-
-### 2. Buat Virtual Environment
-```bash
-python -m venv env
-source env/bin/activate       # Untuk macOS/Linux
-env\Scripts\activate          # Untuk Windows
-```
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Jalankan Aplikasi
-```bash
-streamlit run app.py
-```
-
-Aplikasi akan terbuka di browser pada alamat: `http://localhost:8501`
+## 🔍 Overview Project
+Proyek ini bertujuan untuk mengembangkan sebuah sistem prediksi risiko depresi pada mahasiswa berdasarkan faktor akademik dan gaya hidup. Sistem ini mengintegrasikan model machine learning **Random Forest** (RF) dan **Feedforward Neural Network** (FNN) untuk memberikan hasil prediksi yang akurat dan dapat dijadikan referensi awal.
 
 ---
 
-## 🤓 Deskripsi Model
+## 📊 Deskripsi Dataset
+Dataset yang digunakan mencakup data mahasiswa dengan atribut seperti tekanan akademik, stres keuangan, kebiasaan makan, durasi tidur, dan lainnya. Fitur-fitur ini membantu model dalam menentukan prediksi risiko depresi.
 
-### 1. **Random Forest (RF)**
-- Model Random Forest menggunakan algoritma ensemble berbasis pohon keputusan.
-- **Keunggulan:**
-  - Mampu menangani data yang kompleks.
-  - Cepat untuk dilatih dan dievaluasi.
-- **Parameter Utama:**
-  - `n_estimators`: 100
-  - `max_depth`: 10
-  - `min_samples_split`: 2
-
-### 2. **Feedforward Neural Network (FNN)**
-- Model FNN adalah neural network sederhana dengan 2 hidden layer.
-- **Struktur:**
-  - **Layer Input:** 7 fitur input.
-  - **Hidden Layer 1:** 128 neuron, aktivasi ReLU.
-  - **Hidden Layer 2:** 64 neuron, aktivasi ReLU.
-  - **Layer Output:** 1 neuron, aktivasi sigmoid.
-- **Keunggulan:**
-  - Dapat memodelkan hubungan non-linear antar fitur.
+Dataset terdiri atas **6.535 data** yang telah diproses, dengan pembagian sebagai berikut:
+- 70% sebagai *Training Set*
+- 15% sebagai *Validation Set*
+- 15% sebagai *Testing Set*
 
 ---
 
-## 🔍 Hasil dan Analisis
+## 🔧 Preprocessing & Modelling
 
-### 1. Confusion Matrix
-**Random Forest:**
+### ☀ Random Forest Model ✨
+**Preprocessing**
+
+- Standarisasi fitur numerik menggunakan **StandardScaler**.
+- Mengatasi data tidak seimbang dengan **SMOTE** untuk oversampling kelas minoritas.
+
+**Modelling**
+
+Model Random Forest dilatih dengan parameter utama berikut:
+- `n_estimators`: 100
+- `max_depth`: 10
+- `min_samples_split`: 2
+- `min_samples_leaf`: 1
+
+Hasil dari RF Model setelah evaluasi ditunjukkan dalam Confusion Matrix berikut:
+
 ![Confusion Matrix RF](path/to/rf_confusion_matrix.png)
 
-**Feedforward Neural Network:**
-![Confusion Matrix FNN](path/to/fnn_confusion_matrix.png)
+**Model Evaluation**
 
-### 2. Classification Report
-
-#### Random Forest
 | Class | Precision | Recall | F1-Score | Support |
 |-------|-----------|--------|----------|---------|
 | 0     | 0.86      | 0.84   | 0.85     | 3281    |
@@ -92,7 +59,26 @@ Aplikasi akan terbuka di browser pada alamat: `http://localhost:8501`
 | **Macro Avg**      | 0.85    | 0.85    | 0.85     | 6535    |
 | **Weighted Avg**   | 0.85    | 0.85    | 0.85     | 6535    |
 
-#### Feedforward Neural Network
+### ☀ Feedforward Neural Network Model ✨
+**Preprocessing**
+
+- Standarisasi fitur numerik dengan **StandardScaler**.
+- Pembagian dataset ke dalam *Training*, *Validation*, dan *Testing*.
+
+**Modelling**
+
+FNN dibangun dengan arsitektur berikut:
+- **Input Layer**: 7 fitur input.
+- **Hidden Layer 1**: 128 neuron, aktivasi ReLU.
+- **Hidden Layer 2**: 64 neuron, aktivasi ReLU.
+- **Output Layer**: 1 neuron, aktivasi sigmoid.
+
+Hasil dari FNN Model setelah evaluasi ditunjukkan dalam Confusion Matrix berikut:
+
+![Confusion Matrix FNN](path/to/fnn_confusion_matrix.png)
+
+**Model Evaluation**
+
 | Class | Precision | Recall | F1-Score | Support |
 |-------|-----------|--------|----------|---------|
 | 0     | 0.85      | 0.83   | 0.84     | 3281    |
@@ -101,56 +87,42 @@ Aplikasi akan terbuka di browser pada alamat: `http://localhost:8501`
 | **Macro Avg**      | 0.84    | 0.84    | 0.84     | 6535    |
 | **Weighted Avg**   | 0.84    | 0.84    | 0.84     | 6535    |
 
-### 3. Learning Curve
-![Learning Curve](path/to/learning_curve.png)
+### 🔄 Learning Curve
 
-### 4. Feature Importance
+**Random Forest**:
+![Learning Curve RF](path/to/rf_learning_curve.png)
+
+**Feedforward Neural Network**:
+![Learning Curve FNN](path/to/fnn_learning_curve.png)
+
+### 🔬 Feature Importance
+
+Feature importance dari model Random Forest:
 ![Feature Importance](path/to/feature_importance.png)
 
-**Kesimpulan:**
-- **Random Forest** menunjukkan akurasi yang sedikit lebih tinggi dibandingkan FNN.
-- **FNN** memiliki kemampuan yang seimbang antara precision dan recall.
+---
+
+## 🔐 Local Web Deployment
+
+### Tampilan Aplikasi
+
+- **Halaman Utama**:
+![Homepage](path/to/homepage.png)
+
+- **Hasil Prediksi**:
+![Prediction Result](path/to/prediction_result.png)
+
+---
+
+## 🕵️‍♂️ Kesimpulan
+
+- **Random Forest** menunjukkan akurasi sedikit lebih tinggi dibanding FNN, tetapi kedua model memiliki performa yang kompetitif.
 - **Feature importance** membantu memahami faktor utama yang memengaruhi prediksi.
+- Proyek ini dapat dikembangkan lebih lanjut dengan memperkaya dataset dan menambahkan fitur interpretasi hasil prediksi.
 
 ---
 
-## 🌐 Link Live Demo
+## 👨‍💻 Author 
 
-Aplikasi web dapat diakses melalui tautan berikut:
-[**Live Demo Aplikasi**](https://your-live-demo-link.com)
+- [Your Name](https://github.com/your-profile)
 
----
-
-## 📂 Struktur Proyek
-
-- `app.py` - Kode Streamlit untuk aplikasi web.
-- `rf_model.pkl` - Model Random Forest yang telah dilatih.
-- `fnn_model.h5` - Model Feedforward Neural Network yang telah dilatih.
-- `scaler.pkl` - Scaler untuk standarisasi data.
-- `requirements.txt` - Daftar dependencies.
-- `README.md` - Dokumentasi proyek.
-
----
-
-## 🙏 Kontribusi
-
-Jika Anda ingin berkontribusi pada proyek ini:
-1. Fork repository ini.
-2. Lakukan perubahan pada branch baru.
-3. Kirimkan pull request.
-
----
-
-## 🛠️ Teknologi yang Digunakan
-
-- **Python**: Untuk pemrosesan data dan machine learning.
-- **Streamlit**: Untuk antarmuka web.
-- **Scikit-learn**: Untuk model Random Forest.
-- **TensorFlow/Keras**: Untuk model Feedforward Neural Network.
-- **Matplotlib & Seaborn**: Untuk visualisasi data.
-
----
-
-## 📢 Author
-Bagus Wicaksono
-2020110370311220
